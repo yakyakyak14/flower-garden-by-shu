@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useAuth } from "@/contexts/AuthContext";
 import { supabase } from "@/integrations/supabase/client";
+import DonateButton from "@/components/garden/DonateButton";
 import { Coins, Flower2, History, Trophy, ArrowLeft, Bell, BellOff, Flame, Zap, Award, Image } from "lucide-react";
 import { FLOWER_TYPES } from "@/lib/flowers";
 import { requestNotificationPermission, useMilestoneNotifications } from "@/hooks/useMilestoneNotifications";
@@ -257,6 +258,7 @@ const Dashboard = () => {
           )}
         </motion.div>
       </div>
+      <DonateButton />
     </div>
   );
 };

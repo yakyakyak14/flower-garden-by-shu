@@ -13,6 +13,8 @@ dist-ssr
 *.local
 .env
 .env.*
+flowa-gdn-updt
+flowa-gdn-updt/
 
 # Editor directories and files
 .vscode/*

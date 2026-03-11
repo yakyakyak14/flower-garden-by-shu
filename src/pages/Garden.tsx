@@ -18,6 +18,8 @@ import AchievementToast from "@/components/garden/AchievementToast";
 import { captureGardenScreenshot } from "@/lib/garden-capture";
 import { createGardenRecorder, type GardenRecorder } from "@/lib/garden-recorder";
 import { DEFAULT_SPOTIFY_TYPE, DEFAULT_SPOTIFY_ID, spotifyEmbedUrl } from "@/lib/music-presets";
+import DonateButton from "@/components/garden/DonateButton";
+import DonationCelebration from "@/components/garden/DonationCelebration";
 
 type Phase = "setup" | "growing" | "celebrating" | "timelapse" | "mystery";
 
@@ -41,6 +43,7 @@ const Garden = () => {
   const [frameCount, setFrameCount] = useState(0);
   const [finalImageUrl, setFinalImageUrl] = useState<string | null>(null);
   const [defaultMusicPlaying, setDefaultMusicPlaying] = useState(false);
+  const [showDonationCelebration, setShowDonationCelebration] = useState(false);
   const celebrationAudioRef = useRef<HTMLAudioElement | null>(null);
   const gardenCanvasRef = useRef<HTMLDivElement>(null);
   const recorderRef = useRef<GardenRecorder | null>(null);
@@ -50,6 +53,14 @@ const Garden = () => {
   const remaining = targetCount - currentCount;
   const isNearEnd = remaining <= 20 && remaining > 0;
   const wynKoins = calculateWynKoins(targetCount);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("donation") === "success") {
+      setShowDonationCelebration(true);
+      window.history.replaceState({}, "", "/garden");
+    }
+  }, []);
 
   const handleStartSession = (flower: FlowerType, count: number) => {
     setFlowerType(flower);
@@ -428,6 +439,13 @@ const Garden = () => {
           setActiveEmbedUrl(embedUrl);
           setDefaultMusicPlaying(false);
         }}
+      />
+
+      <DonateButton />
+
+      <DonationCelebration
+        show={showDonationCelebration}
+        onComplete={() => setShowDonationCelebration(false)}
       />
     </div>
   );

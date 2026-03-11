@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import heroImage from "@/assets/hero-garden.jpg";
 import { useAuth } from "@/contexts/AuthContext";
 import { Flower2, Sparkles, UserPlus } from "lucide-react";
+import DonateButton from "@/components/garden/DonateButton";
 
 const Index = () => {
   const navigate = useNavigate();
@@ -113,6 +114,8 @@ const Index = () => {
           ))}
         </div>
       </div>
+
+      <DonateButton />
     </div>
   );
 };
