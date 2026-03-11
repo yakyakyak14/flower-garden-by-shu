@@ -33,8 +33,11 @@ const GardenHeader = ({ user, onMusicToggle, showMusic }: GardenHeaderProps) => 
     <header className="fixed top-0 left-0 right-0 z-40 px-2 sm:px-4 py-2 sm:py-3">
       <div className="glass-card !p-2 sm:!p-3 flex items-center justify-between max-w-4xl mx-auto">
         <Link to="/" className="flex items-center gap-1 sm:gap-2">
-          <span className="text-xl sm:text-2xl">🌸</span>
-          <span className="font-display font-bold text-foreground hidden sm:inline text-sm">The Flower Garden</span>
+          <img
+            src="/20260311_042255_0000.png"
+            alt="Flower Garden by Shushi"
+            className="h-6 sm:h-8 w-auto object-contain"
+          />
         </Link>
 
         <div className="flex items-center gap-1 sm:gap-2">
