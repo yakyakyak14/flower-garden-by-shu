@@ -36,7 +36,7 @@ const GardenHeader = ({ user, onMusicToggle, showMusic }: GardenHeaderProps) => 
           <img
             src="/20260311_042255_0000.png"
             alt="Flower Garden by Shushi"
-            className="h-6 sm:h-8 w-auto object-contain"
+            className="h-9 sm:h-12 w-auto object-contain"
           />
         </Link>
 
